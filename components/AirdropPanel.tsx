@@ -110,8 +110,7 @@ const Button = styled.div`
   cursor: pointer;
 `
 
-const AirdropPanel: NextComponentType = (props) => {
-    
+const AirdropPanel: NextComponentType = () => {
   const [captchaId, setCaptchaId] = useState<number>(-1)
 
   const [loading, setLoading] = useState<boolean>(false)
