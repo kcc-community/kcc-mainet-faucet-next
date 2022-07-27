@@ -11,8 +11,8 @@ const MediaListWrap = styled.div`
   width: 516px;
   height: 48px;
   background: #ffffff;
-  border-radius: 4px;
-  margin-top: 60px;
+  border-radius: 8px;
+  margin-top: 24px;
 `
 
 const Text = styled.div`
@@ -96,7 +96,7 @@ const MediaList: NextComponentType = ({}) => {
                 window.open(media.route, '_blank')
               }}
             >
-              <Image src={media.icon} width={20} height={20} alt="icon" />
+              <Image src={media.icon} width={28} height={28} alt="icon" />
             </ImageWrap>
           )
         })}
