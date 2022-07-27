@@ -198,6 +198,8 @@ const AirdropPanel: NextComponentType<any> = ({ query }) => {
 
   const [loading, setLoading] = useState<boolean>(false)
 
+  const [isHover, setIsHover] = useState<boolean>(false)
+
   const [captchaCode, setcaptchaCode] = useState<string>('')
 
   const user = useUser()
@@ -273,7 +275,7 @@ const AirdropPanel: NextComponentType<any> = ({ query }) => {
 
       // with url
       if (response.data?.url) {
-        window.open(response.data?.url,'_self')
+        window.open(response.data?.url, '_self')
       }
     } finally {
       setLoading(() => false)
@@ -348,8 +350,22 @@ const AirdropPanel: NextComponentType<any> = ({ query }) => {
         style={{ marginTop: hasToken ? '0px' : '30px' }}
         loading={loading}
         onClick={hasToken ? getAirdrop : login}
+        onMouseEnter={() => {
+          setIsHover(() => true)
+        }}
+        onMouseLeave={() => {
+          setIsHover(() => false)
+        }}
       >
-        {hasToken ? 'REQUEST 0.0005 KCS' : 'Login with Twitter'}
+        {!hasToken && (
+          <Image
+            src={isHover ? '/images/green.svg' : '/images/white-twitter.png'}
+            width={20}
+            height={20}
+            alt="twitter"
+          />
+        )}
+        {hasToken ? 'REQUEST 0.0005 KCS' : <span style={{ marginLeft: '10px' }}>Login with Twitter</span>}
       </StyledButton>
 
       {hasToken && (
