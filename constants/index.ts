@@ -1,2 +1,2 @@
-export const API_BASE_URL = 'https://t-faucet.kcc.network/v1'
-
+export const API_BASE_URL =
+  process.env.NODE_ENV === 'development' ? 'https://t-faucet.kcc.network/v1' : 'https://faucet.kcc.network/v1'
