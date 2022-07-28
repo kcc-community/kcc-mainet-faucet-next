@@ -77,7 +77,9 @@ const Home: NextPage<{ query: { oauth_token: string; oauth_verifier: string } }>
       <Title>KCC MAINNET FAUCET</Title>
       <Description>
         If you are using KCC-Faucet for the first time,you can &nbsp;
-        <Link href=""> Check the guide</Link>
+        <Link href="https://docs.google.com/document/d/1DC6-AD1R12QcGANENvyCVKbQxt3OrfiJq2VZDGse9Cg/edit" target="_blank">
+          Check the guide
+        </Link>
       </Description>
       <AirdropPanel query={query} />
       <MediaList />
