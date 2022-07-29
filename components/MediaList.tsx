@@ -86,7 +86,7 @@ export const KCC = {
 const MediaList: NextComponentType = ({}) => {
   return (
     <MediaListWrap>
-      <Text>For more information,you can visit our:</Text>
+      <Text>For more information, you can visit our:</Text>
       <ListWrap>
         {KCC.CONTACT_LIST.map((media, index) => {
           return (
@@ -96,7 +96,7 @@ const MediaList: NextComponentType = ({}) => {
                 window.open(media.route, '_blank')
               }}
             >
-              <Image src={media.icon} width={28} height={28} alt="icon" />
+              <Image priority={true} src={media.icon} width={28} height={28} alt="icon" />
             </ImageWrap>
           )
         })}

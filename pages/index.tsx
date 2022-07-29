@@ -59,6 +59,7 @@ export async function getServerSideProps(context: any) {
 }
 
 const Home: NextPage<{ query: { oauth_token: string; oauth_verifier: string } }> = ({ query }) => {
+  
   return (
     <AppContainer>
       <Head>
@@ -73,11 +74,14 @@ const Home: NextPage<{ query: { oauth_token: string; oauth_verifier: string } }>
         />
         <script src="//recaptcha.net/recaptcha/api.js?hl=en"></script>
       </Head>
-      <Image src="/images/kcc-logo.png" width={140} height={50} alt="kcc-logo" />
+      <Image priority={true} src="/images/kcc-logo.png" width={140} height={50} alt="kcc-logo" />
       <Title>KCC MAINNET FAUCET</Title>
       <Description>
         If you are using KCC-Faucet for the first time,you can &nbsp;
-        <Link href="https://docs.google.com/document/d/1DC6-AD1R12QcGANENvyCVKbQxt3OrfiJq2VZDGse9Cg/edit" target="_blank">
+        <Link
+          href="https://docs.google.com/document/d/1DC6-AD1R12QcGANENvyCVKbQxt3OrfiJq2VZDGse9Cg/edit"
+          target="_blank"
+        >
           Check the guide
         </Link>
       </Description>

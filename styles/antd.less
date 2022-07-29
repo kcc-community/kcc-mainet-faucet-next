@@ -38,3 +38,18 @@
   font-size: 14px;
   color: #b4b7c1;
 }
+
+[class^='ant-'],
+td {
+  transition: none !important;
+}
+
+[class^='ant-menu'] {
+  transition: border-color 0.3s cubic-bezier(0.645, 0.045, 0.355, 1),
+    background 0.3s cubic-bezier(0.645, 0.045, 0.355, 1) !important;
+
+  .anticon,
+  .anticon + span {
+    transition: none !important;
+  }
+}

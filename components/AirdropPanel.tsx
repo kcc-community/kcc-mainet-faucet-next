@@ -326,7 +326,7 @@ const AirdropPanel: NextComponentType<any> = ({ query }) => {
 
   return (
     <PanelWrap hasToken={hasToken}>
-      {user.screenName && <UserNameText>{`Hi,${user.screenName}`}</UserNameText>}
+      {user.screenName && <UserNameText>{`Hi, ${user.screenName}`}</UserNameText>}
       <InputWrap>
         <Input placeholder="Enther your address here to receive KCS" onChange={(e) => setInput(e.target.value)} />
         <KCSWrap>0.0005 KCS</KCSWrap>
@@ -359,6 +359,7 @@ const AirdropPanel: NextComponentType<any> = ({ query }) => {
       >
         {!hasToken && (
           <Image
+            priority={true}
             src={isHover ? '/images/green.svg' : '/images/white-twitter.png'}
             width={20}
             height={20}
@@ -377,7 +378,7 @@ const AirdropPanel: NextComponentType<any> = ({ query }) => {
           }}
         >
           <LogoutText>Logout</LogoutText>
-          <Image src="/images/logout.png" width={16} height={16} alt="logout-icon" />
+          <Image priority={true} src="/images/logout.png" width={16} height={16} alt="logout-icon" />
         </RowCenterBox>
       )}
     </PanelWrap>
