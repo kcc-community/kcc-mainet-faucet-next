@@ -31,6 +31,12 @@ const PanelWrap = styled.div<{ hasToken: boolean }>`
     }
     return '66px 32px 24px 32px;'
   }};
+  @media (max-width: 768px) {
+    width: 96%;
+    max-width: 516px;
+    margin: 0 auto;
+    margin-top:36px;
+  }
 `
 
 const InputWrap = styled.div`
@@ -146,6 +152,9 @@ const StyledButton = styled(Button)`
     return '#fff'
   }};
   cursor: pointer;
+  @media (max-width:768px){
+    width:100%;
+  }
 `
 
 const UserNameText = styled.div`

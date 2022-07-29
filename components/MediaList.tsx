@@ -13,6 +13,14 @@ const MediaListWrap = styled.div`
   background: #ffffff;
   border-radius: 8px;
   margin-top: 24px;
+  @media (max-width: 768px) {
+    flex-direction: column;
+    padding:10px 0px;
+    height:auto;
+    width:96%;
+    max-width:516px;
+    margin:24px auto;
+  }
 `
 
 const Text = styled.div`
@@ -31,6 +39,9 @@ const ListWrap = styled.div`
   align-items: center;
   width: 140px;
   margin: 0 16px;
+  @media (max-width:768px){
+    margin-top:8px;
+  }
 `
 
 const ImageWrap = styled.div`
