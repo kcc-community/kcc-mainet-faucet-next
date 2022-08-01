@@ -5,6 +5,7 @@ import Image from 'next/image'
 import styled from 'styled-components'
 import AirdropPanel from '~/components/AirdropPanel'
 import MediaList from '~/components/MediaList'
+import KCCLOGO from '../public/images/kcc-logo.png'
 
 const AppContainer = styled.div`
   width: 100%;
@@ -15,7 +16,7 @@ const AppContainer = styled.div`
   justify-content: flex-start;
   align-items: center;
   padding-top: 150px;
-  background: url('/images/bg.png') top center no-repeat;
+  background: url('../images/bg.png') top center no-repeat;
   background-size: 100% 100%;
   box-sizing: border-box;
   @media (max-width: 768px) {
@@ -51,7 +52,7 @@ const Description = styled.div`
     display: flex;
     flex-flow: column nowrap;
     align-items: center;
-    justify-content:center;
+    justify-content: center;
   }
 `
 
@@ -87,7 +88,7 @@ const Home: NextPage<{ query: { oauth_token: string; oauth_verifier: string } }>
           rel="stylesheet"
         />
       </Head>
-      <Image priority={true} src="/images/kcc-logo.png" width={140} height={50} alt="kcc-logo" />
+      <Image priority={true} src={KCCLOGO} width={140} height={50} alt="kcc-logo" />
       <Title>KCC MAINNET FAUCET</Title>
       <Description>
         If you are using KCC-Faucet for the first time, you can &nbsp;
