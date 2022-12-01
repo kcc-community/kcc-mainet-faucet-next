@@ -35,7 +35,7 @@ const PanelWrap = styled.div<{ hasToken: boolean }>`
     width: 96%;
     max-width: 516px;
     margin: 0 auto;
-    margin-top:36px;
+    margin-top: 36px;
   }
 `
 
@@ -152,8 +152,8 @@ const StyledButton = styled(Button)`
     return '#fff'
   }};
   cursor: pointer;
-  @media (max-width:768px){
-    width:100%;
+  @media (max-width: 768px) {
+    width: 100%;
   }
 `
 
@@ -222,20 +222,24 @@ const AirdropPanel: NextComponentType<any> = ({ query }) => {
   }, [query])
 
   const renderGoogleCaptcha = React.useCallback(() => {
-    const char = window.document.getElementById('captcha')
-    console.log('captchaId', captchaId)
-    if (hasToken && char && window?.grecaptcha && !rendered) {
-      const cid = window.grecaptcha.render('captcha', {
-        sitekey: '6Leeu5IgAAAAAFUkaZfGXfOpiE2n0DEfYWFotVcG',
-      })
-      rendered = true
-      setCaptchaId(() => cid)
+    if (typeof window !== 'undefined') {
+      const char = window.document.getElementById('captcha')
+      console.log('captchaId', captchaId)
+      if (hasToken && char && window?.grecaptcha && !rendered) {
+        const cid = window.grecaptcha.render('captcha', {
+          sitekey: '6Leeu5IgAAAAAFUkaZfGXfOpiE2n0DEfYWFotVcG',
+        })
+        rendered = true
+        setCaptchaId(() => cid)
+      }
     }
   }, [hasToken, captchaId])
 
   const resetCaptcha = () => {
-    const char = window.document.getElementById('captcha')
-    char && window?.grecaptcha.reset(captchaId)
+    if (typeof window !== 'undefined') {
+      const char = window.document.getElementById('captcha')
+      char && window?.grecaptcha.reset(captchaId)
+    }
   }
 
   useEffect(() => {
