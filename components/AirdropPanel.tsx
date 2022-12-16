@@ -235,16 +235,16 @@ const AirdropPanel: NextComponentType<any> = ({ query }) => {
     }
   }, [hasToken, captchaId])
 
-  const resetCaptcha = () => {
+  const resetCaptcha = React.useCallback(() => {
     if (typeof window !== 'undefined') {
       const char = window.document.getElementById('captcha')
       char && window?.grecaptcha.reset(captchaId)
     }
-  }
+  }, [captchaId])
 
   useEffect(() => {
     renderGoogleCaptcha()
-  }, [hasToken, captchaId])
+  }, [hasToken, captchaId, renderGoogleCaptcha])
 
   // autoGetToken when hasQeury and not has Token
 
@@ -270,7 +270,7 @@ const AirdropPanel: NextComponentType<any> = ({ query }) => {
     }
 
     autoGetToken()
-  }, [hasToken, hasQuery])
+  }, [hasToken, hasQuery, query.oauth_token, query.oauth_verifier, dispatch, router])
 
   //
   const login = React.useCallback(async () => {
@@ -287,13 +287,13 @@ const AirdropPanel: NextComponentType<any> = ({ query }) => {
       }
 
       // with url
-      if (response.data?.url) {
+      if (response.data?.url && typeof window !== 'undefined') {
         window.open(response.data?.url, '_self')
       }
     } finally {
       setLoading(() => false)
     }
-  }, [user, hasToken])
+  }, [router])
 
   const getAirdrop = React.useCallback(async () => {
     if (!isAddress(input.trim())) {
@@ -335,7 +335,7 @@ const AirdropPanel: NextComponentType<any> = ({ query }) => {
     } finally {
       setLoading(() => false)
     }
-  }, [captchaId, input, user])
+  }, [captchaId, dispatch, input, resetCaptcha, router, user.token, user.userId])
 
   return (
     <PanelWrap hasToken={hasToken}>
