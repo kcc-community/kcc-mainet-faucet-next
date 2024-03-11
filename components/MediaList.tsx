@@ -52,7 +52,6 @@ const ImageWrap = styled.div`
 
 export const KCC = {
   EXPLORER: 'https://explorer.kcc.io',
-  EXPLORER2: 'https://scan.kcc.io',
   TEST_EXPLORER: 'https://scan-testnet.kcc.network',
   MAINNET_FAUCET: 'https://faucet.kcc.io',
   FAUCET: 'https://faucet-testnet.kcc.network/',
